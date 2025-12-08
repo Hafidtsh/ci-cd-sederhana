@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "src/sum.js",
   "scripts": {
-    "test": "jest",
+    "test": "npx jest",
     "build": "echo \"Build selesai (misal: webpack, ts, dll)\""
   },
   "devDependencies": {
