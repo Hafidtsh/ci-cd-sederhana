@@ -2,15 +2,14 @@ name: CI/CD Sederhana
 
 on:
   push:
-    branches:
-      - main # jalan setiap ada push ke branch main
+    branches: ["main"]
   pull_request:
-    branches:
-      - main # jalan juga untuk PR ke main
+    branches: ["main"]
 
 jobs:
   ci:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout kode
         uses: actions/checkout@v4
@@ -18,17 +17,13 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: '20'
 
       - name: Install dependencies
         run: npm install
 
-      - name: Pastikan jest executable (workaround)
-        run: |
-          if [ -f ./node_modules/.bin/jest ]; then
-            chmod +x ./node_modules/.bin/jest || true
-          fi
+      - name: Pastikan jest executable
+        run: chmod +x ./node_modules/.bin/jest || true
 
       - name: Jalankan unit test
-        # pakai npx agar memanggil binary yang benar
         run: npx jest --runInBand
