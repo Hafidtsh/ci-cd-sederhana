@@ -7,6 +7,6 @@
     "build": "echo \"Build selesai (misal: webpack, ts, dll)\""
   },
   "devDependencies": {
-    "jest": "^29.0.0"
+    "jest": "^29.7.0"
   }
 }
