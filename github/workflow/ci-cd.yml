@@ -1,0 +1,47 @@
+name: CI/CD Sederhana
+
+on:
+  push:
+    branches:
+      - main # jalan setiap ada push ke branch main
+  pull_request:
+    branches:
+      - main # jalan juga untuk PR ke main
+
+jobs:
+  ci:
+    name: CI - Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Jalankan unit test
+        run: npm test
+
+      - name: Build (simulasi)
+        run: npm run build
+
+  cd:
+    name: CD - Deploy (simulasi)
+    needs: ci # job CD hanya jalan kalau CI sukses
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' # hanya untuk branch main
+
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v4
+
+      - name: Simulasi Deploy
+        run: |
+          echo "Deploy ke server produksi..."
+          echo "Misalnya: copy file build ke server / panggil API deploy"

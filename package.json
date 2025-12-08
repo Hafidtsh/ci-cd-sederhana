@@ -1,0 +1,12 @@
+{
+  "name": "ci-cd-sederhana",
+  "version": "1.0.0",
+  "main": "src/sum.js",
+  "scripts": {
+    "test": "jest",
+    "build": "echo \"Build selesai (misal: webpack, ts, dll)\""
+  },
+  "devDependencies": {
+    "jest": "^29.0.0"
+  }
+}
