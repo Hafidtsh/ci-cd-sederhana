@@ -4,7 +4,7 @@
   "main": "src/sum.js",
   "scripts": {
     "test": "npx jest",
-    "build": "echo \"Build selesai (misal: webpack, ts, dll)\""
+    "build": "rm -rf dist && mkdir dist && cp -r public/* dist/"
   },
   "devDependencies": {
     "jest": "^29.7.0"
