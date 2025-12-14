@@ -1,4 +1,4 @@
-<!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -9,10 +9,17 @@
       text-align: center;
       margin-top: 100px;
     }
+
     button {
       font-size: 20px;
       padding: 15px 30px;
       cursor: pointer;
+    }
+
+    #countdown {
+      font-size: 48px;
+      margin-top: 30px;
+      display: none;
     }
   </style>
 </head>
@@ -21,7 +28,9 @@
   <h1>🏆 CI/CD BERHASIL 🏆</h1>
   <p>Klik tombol ini bro 👇</p>
 
-  <button onclick="playSong()">▶️ WE ARE THE CHAMPIONS</button>
+  <button id="playBtn" onclick="startCountdown()">▶️ WE ARE THE CHAMPIONS</button>
+
+  <div id="countdown">7</div>
 
   <!-- YouTube hidden iframe -->
   <iframe
@@ -34,6 +43,30 @@
   ></iframe>
 
   <script>
+    let timeLeft = 7;
+    let interval;
+
+    function startCountdown() {
+      const btn = document.getElementById("playBtn");
+      const countdown = document.getElementById("countdown");
+
+      btn.disabled = true;
+      btn.innerText = "⏳ Bersiap bro...";
+      countdown.style.display = "block";
+      countdown.innerText = timeLeft;
+
+      interval = setInterval(() => {
+        timeLeft--;
+        countdown.innerText = timeLeft;
+
+        if (timeLeft === 0) {
+          clearInterval(interval);
+          playSong();
+          countdown.innerText = "🏆";
+        }
+      }, 1000);
+    }
+
     function playSong() {
       document.getElementById("ytplayer").src =
         "https://www.youtube.com/embed/04854XqcfCY?autoplay=1";
