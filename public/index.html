@@ -1,11 +1,44 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>CI/CD Sederhana</title>
-  </head>
-  <body>
-    <h1>🚀 CI/CD Berhasil!</h1>
-    <p>Deploy otomatis via GitHub Actions</p>
-  </body>
+<!<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CI/CD Sukses</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏆 CI/CD BERHASIL 🏆</h1>
+  <p>Klik tombol ini bro 👇</p>
+
+  <button onclick="playSong()">▶️ WE ARE THE CHAMPIONS</button>
+
+  <!-- YouTube hidden iframe -->
+  <iframe
+    id="ytplayer"
+    width="0"
+    height="0"
+    src=""
+    frameborder="0"
+    allow="autoplay"
+  ></iframe>
+
+  <script>
+    function playSong() {
+      document.getElementById("ytplayer").src =
+        "https://www.youtube.com/embed/04854XqcfCY?autoplay=1";
+    }
+  </script>
+
+</body>
 </html>
