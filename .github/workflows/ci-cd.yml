@@ -35,6 +35,9 @@ jobs:
       - name: Jalankan unit test
         run: npx jest --runInBand
 
+      - name: Build
+        run: npm run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
